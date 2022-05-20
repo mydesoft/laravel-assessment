@@ -18,9 +18,9 @@ class UserController extends Controller
 		$users = $this->userRepository->all();
 
 		if (!$users) {
-			return $this->success('No Users Yet');
+			return $this->apiSuccess('No Users Yet');
 		}
-		return $this->success('Users Found', UserResource::collection($users));
+		return $this->apiSuccess('Users Found', UserResource::collection($users));
 	}
 
     public function filteredUsers(Request $request): JsonResponse
@@ -28,8 +28,8 @@ class UserController extends Controller
 		$filteredusers = $this->userRepository->filter($request);
 
 		if ($filteredusers->isEmpty()) {
-			return $this->notFound('No Users found');
+			return $this->apiNotFound('No Users found');
 		}
-    	return $this->success('Users Found', $filteredusers);
+    	return $this->apiSuccess('Users Found', $filteredusers);
     }
 }

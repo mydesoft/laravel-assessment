@@ -10,7 +10,7 @@ trait ApiResponseNormalizer{
      * @param [type] $body
      * @return \Illuminate\Http\JsonResponse
      */
-    public function success($msg, $body = null): JsonResponse
+    public function apiSuccess($msg, $body = null): JsonResponse
     {
         return response()->json([
             'success' => true,
@@ -26,7 +26,7 @@ trait ApiResponseNormalizer{
      * @param [type] $body
      * @return \Illuminate\Http\JsonResponse
      */
-    public function notFound($msg, $body = null):JsonResponse
+    public function apiNotFound($msg, $body = null):JsonResponse
     {
          return response()->json([
             'success' => false,
